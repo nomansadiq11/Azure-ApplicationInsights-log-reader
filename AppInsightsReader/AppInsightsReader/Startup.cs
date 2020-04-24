@@ -23,7 +23,7 @@ namespace AppInsightsReader
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc().AddRazorOptions(options => options.AllowRecompilingViewsOnFileChange = true);
+            
 
         }
 

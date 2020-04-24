@@ -1,0 +1,10 @@
+version: '3'
+services:
+    website:
+        container_name: ApplicationInsights
+        build:
+            context: ./
+        volumes:
+            - G:/Documents/Projects/GIT/repo/Azure-ApplicationInsights-log-reader/app:/usr/share/nginx/html
+        ports:
+            - 3001:80
