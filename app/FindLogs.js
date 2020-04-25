@@ -1,6 +1,6 @@
 
 
-var ServiceURL = "http://localhost:51835/api/Bargain/";
+var ServiceURL = "https://api.applicationinsights.io/v1/apps/84e3ce2d-f378-4cfd-a1b1-f81ae5a7e2ff/";
 
 var app = angular.module("AppInsights", []);
 
@@ -12,6 +12,7 @@ app.service("AppInsightsService", function ($http) {
         var response = $http({
             method: "post",
             url: ServiceURL + MethodName,
+            headers: {'x-api-key': 'oagju5ztfvrntgccmf4lcigbr5zxmpek6nvgzgsl'},
             data: JSON.stringify(param),
             dataType: "json"
         });
@@ -26,31 +27,29 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
 
 
-    $scope.fn_findbargain = function () {
+    $scope.fn_GetLogs = function () {
 
 
         
-        var param =
-            {
-                destinationid: parseInt($scope.dest),
-                nights:$scope.nights
-            };
+        var param =            
+                {
+                    "query": $scope.query
+                }; 
 
         console.log(param); 
 
-        var ResponseRegistration = cheapawsomeContactService.PostToService(param, "FindBargain");
+        var ResponseRegistration = AppInsightsService.PostToService(param, "query");
         ResponseRegistration.then(function (msg) {
+
+            debugger;
+
             console.log(msg.data); 
+            $scope.Cols = msg.data.tables[0].columns;
 
-            $scope.hotels = msg.data[0].selectedDest; 
-
-            console.log("hotel value "); 
-
-            console.log($scope.hotels); 
             
         }, function (msg) {
 
-            console.log('Error: cheapawsomeContactService');
+            console.log('Error: AppInsightsService');
         });
     }
 
