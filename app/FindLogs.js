@@ -2,10 +2,10 @@
 
 var ServiceURL = "http://localhost:51835/api/Bargain/";
 
-var app = angular.module("cheapawsome", []);
+var app = angular.module("AppInsights", []);
 
 
-app.service("cheapawsomeContactService", function ($http) {
+app.service("AppInsightsService", function ($http) {
 
 
     this.PostToService = function (param, MethodName) {
@@ -22,7 +22,7 @@ app.service("cheapawsomeContactService", function ($http) {
 
 
 
-app.controller("cheapawsomeController", function ($scope, $log, cheapawsomeContactService) {
+app.controller("AppInsightsController", function ($scope, $log, AppInsightsService) {
 
 
 
