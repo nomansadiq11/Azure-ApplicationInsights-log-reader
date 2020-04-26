@@ -1,6 +1,6 @@
 
 
-var ServiceURL = "https://api.applicationinsights.io/v1/apps/84e3ce2d-f378-4cfd-a1b1-f81ae5a7e2ff/";
+var ServiceURL = "https://api.applicationinsights.io/v1/apps/";
 
 var app = angular.module("AppInsights", []);
 
@@ -8,11 +8,11 @@ var app = angular.module("AppInsights", []);
 app.service("AppInsightsService", function ($http) {
 
 
-    this.PostToService = function (param, MethodName) {
+    this.PostToService = function (param, MethodName, AppID, APIKey) {
         var response = $http({
             method: "post",
-            url: ServiceURL + MethodName,
-            headers: {'x-api-key': 'oagju5ztfvrntgccmf4lcigbr5zxmpek6nvgzgsl'},
+            url: ServiceURL + AppID + "/"  +  MethodName,
+            headers: {'x-api-key': APIKey},
             data: JSON.stringify(param),
             dataType: "json"
         });
@@ -38,7 +38,7 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
         console.log(param); 
 
-        var ResponseRegistration = AppInsightsService.PostToService(param, "query");
+        var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.AppID, $scope.APIKey);
         ResponseRegistration.then(function (msg) {
 
             debugger;
