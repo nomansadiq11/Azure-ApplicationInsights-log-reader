@@ -29,6 +29,8 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
     $scope.fn_GetLogs = function () {
 
+        
+
 
         
         var param =            
@@ -38,6 +40,11 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
         console.log(param); 
 
+
+        console.log($scope.AppID);
+        console.log($scope.APIKey);
+
+
         var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.AppID, $scope.APIKey);
         ResponseRegistration.then(function (msg) {
 
@@ -45,6 +52,7 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
             console.log(msg.data); 
             $scope.Cols = msg.data.tables[0].columns;
+            $scope.rows = msg.data.tables[0].rows;
 
             
         }, function (msg) {
