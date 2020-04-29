@@ -2,7 +2,7 @@
 
 var ServiceURL = "https://api.applicationinsights.io/v1/apps/";
 
-var app = angular.module("AppInsights", []);
+var app = angular.module("AppInsights", ['ngCookies']);
 
 
 app.service("AppInsightsService", function ($http) {
@@ -23,16 +23,38 @@ app.service("AppInsightsService", function ($http) {
 
 
 
-app.controller("AppInsightsController", function ($scope, $log, AppInsightsService) {
 
 
 
+
+
+app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '$window' ,'AppInsightsService', function($scope, $cookies, $cookieStore, $window, AppInsightsService) {
+
+
+    
+
+
+    
+
+
+    $scope.fn_SaveConfiguration = function(){
+
+        var obj = {"APIKey":$scope.APIKey, "AppID":$scope.AppID}
+
+        $cookieStore.put('Whatsapp', obj);
+
+        console.log($cookieStore.get('Whatsapp'));
+
+    }
+
+    
     $scope.fn_GetLogs = function () {
 
-        
+        debugger;
 
+        $scope.Whatsapp = $cookieStore.get('Whatsapp');
 
-        
+                
         var param =            
                 {
                     "query": $scope.query
@@ -40,17 +62,21 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
         console.log(param); 
 
+        
+        
 
-        console.log($scope.AppID);
-        console.log($scope.APIKey);
+
+        console.log($scope.Whatsapp.APIKey);
+        console.log($scope.Whatsapp.AppID);
 
 
-        var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.AppID, $scope.APIKey);
+        var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.Whatsapp.AppID, $scope.Whatsapp.APIKey);
         ResponseRegistration.then(function (msg) {
 
             debugger;
 
             console.log(msg.data); 
+            
             $scope.Cols = msg.data.tables[0].columns;
             $scope.rows = msg.data.tables[0].rows;
 
@@ -63,4 +89,4 @@ app.controller("AppInsightsController", function ($scope, $log, AppInsightsServi
 
 
 
-});
+}]);

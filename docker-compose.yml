@@ -5,6 +5,6 @@ services:
         build:
             context: ./
         volumes:
-            - G:/Documents/Projects/GIT/repo/Azure-ApplicationInsights-log-reader/app:/usr/share/nginx/html
+            - C:/Data/GIT/repo/nomansadiq11/Azure-ApplicationInsights-log-reader/app:/usr/share/nginx/html
         ports:
             - 3001:80

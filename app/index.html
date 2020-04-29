@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="utf-8">
@@ -42,7 +42,8 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
-    <script src="angular.min.js"></script>
+    
+    
 </head>
 
 <body ng-app="AppInsights"  ng-controller="AppInsightsController"> 
@@ -95,6 +96,10 @@
                         <label for="exampleFormControlInput1">Application ID</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Application ID" ng-model="AppID" >
                       </div>
+
+                      <div class="form-group">
+                        <button type="button" class="btn btn-primary" ng-click="fn_SaveConfiguration()">Save Cookies</button>
+                      </div>
                    
                     
                     <div class="form-group">
@@ -104,6 +109,12 @@
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" ng-click="fn_GetLogs()">Search Logs</button>
                       </div>
+                    
+                      <div class="form-group">
+                        <button type="button" class="btn btn-primary" ng-click="fn_GetLogs()">Save Query Cookies</button>
+                      </div>
+                   
+                      
                     
                   </form>
                 
@@ -143,6 +154,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     
     <script src="dashboard.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular-cookies.min.js"></script>
+
     <script src="FindLogs.js"></script>
 </body>
 
