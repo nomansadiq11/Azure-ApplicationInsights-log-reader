@@ -87,32 +87,39 @@
                         </button> -->
                     </div>
                 </div>
+
+                
+
                 <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1">API Key</label>
-                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="API Key" ng-model="APIKey" >
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Application ID</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Application ID" ng-model="AppID" >
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="API Key" ng-model="APIKey" >
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Application ID" ng-model="AppID" >
+                        </div>
+                      </div>
+                    
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <button type="button" class="btn btn-primary" ng-click="fn_SaveConfiguration()">Save Cookies</button>
+                        </div>
+                        
                       </div>
 
-                      <div class="form-group">
-                        <button type="button" class="btn btn-primary" ng-click="fn_SaveConfiguration()">Save Cookies</button>
-                      </div>
+                    
                    
                     
                     <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
+                      <label for="exampleFormControlTextarea1">Write Query</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" ng-model="query"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" ng-click="fn_GetLogs()">Search Logs</button>
-                      </div>
-                    
-                      <div class="form-group">
                         <button type="button" class="btn btn-primary" ng-click="fn_GetLogs()">Save Query Cookies</button>
                       </div>
+                    
+                      
                    
                       
                     
