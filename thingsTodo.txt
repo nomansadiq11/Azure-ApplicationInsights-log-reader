@@ -1,0 +1,4 @@
+- Save query in cookies
+- show cookies values 
+- find values to read all the cookies in browser
+- show the configuration and cookies in left menu 
