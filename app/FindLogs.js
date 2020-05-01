@@ -61,10 +61,8 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
                 }; 
 
         console.log(param); 
-
         
-        
-
+     
 
         console.log($scope.Whatsapp.APIKey);
         console.log($scope.Whatsapp.AppID);
