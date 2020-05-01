@@ -67,6 +67,8 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
         console.log($scope.Whatsapp.APIKey);
         console.log($scope.Whatsapp.AppID);
 
+        $('#loader').show(); 
+
 
         var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.Whatsapp.AppID, $scope.Whatsapp.APIKey);
         ResponseRegistration.then(function (msg) {
@@ -77,6 +79,8 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
             
             $scope.Cols = msg.data.tables[0].columns;
             $scope.rows = msg.data.tables[0].rows;
+
+            $('#loader').hide(); 
 
             
         }, function (msg) {
