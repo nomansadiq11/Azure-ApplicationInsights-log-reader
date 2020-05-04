@@ -4,6 +4,13 @@ This repo having an web base applciation which can use to bring Application Insi
 
 This application developed using AnularJS framework. 
 
-This application can be host as containerized or standalone web application any web server. 
+This application can be host as containerized or standalone web application any web server.
+
+## Features
+
+- Search Logs 
+- Save Credentials on Cookies
+- Save Queries on Cookies
+
 
 
