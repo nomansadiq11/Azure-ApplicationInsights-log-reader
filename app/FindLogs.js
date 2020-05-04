@@ -41,6 +41,8 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
         
 
+        
+
         var obj = {"APIKey":$scope.APIKey, "AppID":$scope.AppID, "Name":"WhatApp"}; 
 
         var fulobj =  { "WhatsApp" :  obj}; 
@@ -48,6 +50,8 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
         $cookieStore.put('Whatsapp', obj);
 
         console.log($cookieStore.get('Whatsapp'));
+
+        alert("Saved Successfully"); 
 
     }
 
@@ -96,7 +100,24 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
     $scope.fn_GetAllConfigs = function()
     {
         $scope.Config = $cookieStore.get('Whatsapp');
+        $scope.QueryConfig = $cookieStore.get('query1');
+
         console.log($scope.Config.Name);
+    }
+
+
+    $scope.fn_SaveQuery = function(){
+
+        
+
+        var obj = {"query": $scope.query, "Name":"query1"}; 
+
+        $cookieStore.put(obj.Name, obj);
+
+        console.log($cookieStore.get(obj.Name));
+
+        alert("Saved Successfully"); 
+
     }
 
 
