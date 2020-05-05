@@ -19,6 +19,17 @@ app.service("AppInsightsService", function ($http) {
         return response;
     }
 
+    this.ReadJsonFile = function(){
+
+        this.get('config.json').success(function (data){
+            return data;
+        });
+
+    }
+
+    
+
+
 });
 
 
@@ -78,10 +89,6 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
         var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.Config.AppID, $scope.Config.APIKey);
         ResponseRegistration.then(function (msg) {
-
-            
-
-            console.log(msg.data); 
             
             $scope.Cols = msg.data.tables[0].columns;
             $scope.rows = msg.data.tables[0].rows;
@@ -117,6 +124,25 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
         console.log($cookieStore.get(obj.Name));
 
         alert("Saved Successfully"); 
+
+    }
+
+    $scope.ReadConfigFile = function()
+    {
+
+        var Response = AppInsightsService.ReadJsonFile();
+        Response.then(function (msg) {
+            
+            console.log(msg.data); 
+            
+            
+        }, function (msg) {
+
+            console.log('Error: ReadConfigFile');
+            
+        });
+
+
 
     }
 
