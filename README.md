@@ -11,6 +11,10 @@ This application can be host as containerized or standalone web application any 
 - Search Logs 
 - Save Credentials on Cookies
 - Save Queries on Cookies
+- Search Application Insight logs 
+
+
+
 
 
 
