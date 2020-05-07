@@ -19,15 +19,17 @@ app.service("AppInsightsService", function ($http) {
         return response;
     }
 
-    this.ReadJsonFile = function(){
-
-        this.get('config.json').success(function (data){
-            return data;
+    this.ReadJsonFile = function () {
+        var response = $http({
+            method: "get",
+            url: 'config.json',
+            data: '',
+            dataType: "json"
         });
-
+        return response;
     }
 
-    
+       
 
 
 });
