@@ -12,7 +12,7 @@ This application can be host as containerized or standalone web application any 
 - Save Credentials on Cookies
 - Save Queries on Cookies
 - Search Application Insight logs 
-
+- Configuration can be save in JSON file
 
 
 
