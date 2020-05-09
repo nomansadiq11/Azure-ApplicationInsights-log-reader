@@ -19,17 +19,6 @@ app.service("AppInsightsService", function ($http) {
         return response;
     }
 
-    this.ReadJsonFile = function () {
-        var response = $http({
-            method: "get",
-            url: 'config.json',
-            data: '',
-            dataType: "json"
-        });
-        return response;
-    }
-
-       
 
 
 });
@@ -127,26 +116,6 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
     }
 
-    $scope.ReadConfigFile = function()
-    {
-
-        var Response = AppInsightsService.ReadJsonFile();
-        Response.then(function (msg) {
-            debugger;
-            console.log(msg.data); 
-
-            $scope.ConfigLIst = msg.data; 
-            
-            
-        }, function (msg) {
-
-            console.log('Error: ReadConfigFile');
-            
-        });
-
-
-
-    }
-
+    
 
 }]);
