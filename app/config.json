@@ -1,6 +1,12 @@
-{
-    "WhatsApp": {
-      "AppID": "Hello",
-      "APIKey": "World"
-    }
+[
+  {
+    "AppID": "Hello",
+    "APIKey": "World",
+    "Name": "WhatsApp1"
+  },
+  {
+    "AppID": "Hello",
+    "APIKey": "World",
+    "Name": "WhatsApp2"
   }
+]

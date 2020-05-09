@@ -116,9 +116,7 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
 
     $scope.fn_SaveQuery = function(){
-
-        
-
+       
         var obj = {"query": $scope.query, "Name":"query1"}; 
 
         $cookieStore.put(obj.Name, obj);
@@ -134,8 +132,10 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
         var Response = AppInsightsService.ReadJsonFile();
         Response.then(function (msg) {
-            
+            debugger;
             console.log(msg.data); 
+
+            $scope.ConfigLIst = msg.data; 
             
             
         }, function (msg) {
