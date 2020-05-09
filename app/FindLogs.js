@@ -41,19 +41,29 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
     $scope.fn_SaveConfiguration = function(){
 
+        var obj = {"APIKey":$scope.APIKey, "AppID":$scope.AppID, "Name":"Configuration"}; 
         
-
-        
-
-        var obj = {"APIKey":$scope.APIKey, "AppID":$scope.AppID, "Name":"WhatApp"}; 
-
-        var fulobj =  { "WhatsApp" :  obj}; 
-
-        $cookieStore.put('Whatsapp', obj);
-
-        console.log($cookieStore.get('Whatsapp'));
-
+        $cookieStore.put('Configuration', obj);
+        console.log($cookieStore.get('Configuration'));
         alert("Saved Successfully"); 
+
+    }
+
+    $scope.fn_LoadCacheValues = function()
+    {
+        $scope.Config = $cookieStore.get('Whatsapp');
+        $scope.LastQuery = $cookieStore.get('LastQuery');
+
+        if($scope.LastQuery !== undefined)
+        {
+            $scope.query = $scope.LastQuery.query; 
+        }
+
+        if($scope.Config !== undefined)
+        {
+            $scope.APIKey = $scope.Config.APIKey; 
+            $scope.AppID = $scope.Config.AppID; 
+        }
 
     }
 
@@ -63,6 +73,18 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
         debugger;
 
         $scope.Config = $cookieStore.get('Whatsapp');
+        $scope.LastQuery = $cookieStore.get('LastQuery');
+
+        if($scope.LastQuery !== undefined)
+        {
+            $scope.query = $scope.LastQuery.query; 
+        }
+
+        if($scope.Config !== undefined)
+        {
+            $scope.APIKey = $scope.Config.APIKey; 
+            $scope.AppID = $scope.Config.AppID; 
+        }
 
                 
         var param =            
@@ -78,7 +100,7 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
         $('#loader').show(); 
 
 
-        var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.Config.AppID, $scope.Config.APIKey);
+        var ResponseRegistration = AppInsightsService.PostToService(param, "query", $scope.AppID, $scope.APIKey);
         ResponseRegistration.then(function (msg) {
             
             $scope.Cols = msg.data.tables[0].columns;
@@ -97,21 +119,17 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
     $scope.fn_GetAllConfigs = function()
     {
-        $scope.Config = $cookieStore.get('Whatsapp');
-        $scope.QueryConfig = $cookieStore.get('query1');
-
+        $scope.Config = $cookieStore.get('Configuration');
+        $scope.QueryConfig = $cookieStore.get('LastQuery');
         console.log($scope.Config.Name);
     }
 
 
     $scope.fn_SaveQuery = function(){
        
-        var obj = {"query": $scope.query, "Name":"query1"}; 
-
+        var obj = {"query": $scope.query, "Name":"LastQuery"}; 
         $cookieStore.put(obj.Name, obj);
-
         console.log($cookieStore.get(obj.Name));
-
         alert("Saved Successfully"); 
 
     }
