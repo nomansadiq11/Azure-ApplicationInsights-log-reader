@@ -51,7 +51,7 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
     $scope.fn_LoadCacheValues = function()
     {
-        $scope.Config = $cookieStore.get('Whatsapp');
+        $scope.Config = $cookieStore.get('Configuration');
         $scope.LastQuery = $cookieStore.get('LastQuery');
 
         if($scope.LastQuery !== undefined)
