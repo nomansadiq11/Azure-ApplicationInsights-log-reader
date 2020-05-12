@@ -45,7 +45,7 @@
 
 </head>
 
-<body ng-app="AppInsights" ng-controller="AppInsightsController" ng-init="fn_GetAllConfigs(); ReadConfigFile()">
+<body ng-app="AppInsights" ng-controller="AppInsightsController" ng-init="ReadConfigFile()">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DevOps - OSN</a>
     </nav>
@@ -58,8 +58,8 @@
                         <span>Saved Configurations</span>
                       </h6>
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" ng-repeat="item in ConfigLIst">
+                        <li class="nav-item" ng-repeat="item in ConfigLIst">
+                            <a class="nav-link" href="#" ng-click="fn_SelectConfig(item.Name)">
                                 <span data-feather="home"></span>{{item.Name}}
                             </a>
                         </li>
@@ -93,18 +93,16 @@
                 </div>
 
                 <form>
+                   
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="API Key" ng-model="APIKey">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Application ID" ng-model="AppID">
-                        </div>
-                    </div>
+                            <b>Configuration Selected</b> : {{SelectedConfig}}
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <button type="button" class="btn btn-primary" ng-click="fn_SaveConfiguration()">Save Cookies</button>
+                            <input type="hidden" ng-model="AppID" />
+                            <input type="hidden" ng-model="APIKey" />
+
+
+
                         </div>
 
                     </div>
