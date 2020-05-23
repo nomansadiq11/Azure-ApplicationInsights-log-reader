@@ -51,7 +51,7 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
     
     $scope.fn_GetLogs = function () {
 
-        debugger;
+        
 
                        
         var param =            
@@ -104,7 +104,6 @@ app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '
 
         var Response = AppInsightsService.ReadJsonFile();
         Response.then(function (msg) {
-            debugger;
             console.log(msg.data); 
 
             $scope.ConfigLIst = msg.data; 
