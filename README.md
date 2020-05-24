@@ -15,6 +15,8 @@ This application can be host as containerized or standalone web application any 
 - Configuration can be save in JSON file
 
 
+## Application Version
 
+### V1
 
-
+In this version user can save Application Insights Credentails and query in cache to retrive the values once you reload again. 
