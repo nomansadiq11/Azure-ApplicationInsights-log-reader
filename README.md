@@ -24,3 +24,8 @@ In this version user can save Application Insights Credentails and query in cach
 ### V2
 
 In this version Application Insights API Keys can be store in JSON file configuration, this file can have multiple configuration and user can select specific configuration to see the logs. 
+
+### V3
+
+- Configuration in JSON file
+- Views the data information in charts
