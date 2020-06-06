@@ -1,0 +1,12 @@
+[
+  {
+    "AppID": "",
+    "APIKey": "",
+    "Name": "WhatsAppProd"
+  },
+  {
+    "AppID": "Hello",
+    "APIKey": "World",
+    "Name": "WhatsAppTest"
+  }
+]

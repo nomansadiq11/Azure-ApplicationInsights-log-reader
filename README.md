@@ -30,3 +30,6 @@ In this version Application Insights API Keys can be store in JSON file configur
 - Configuration in JSON file
 - Views the data information in charts
 - Can switch between configs to see the results in charts. 
+- Can search the logs
+
+
